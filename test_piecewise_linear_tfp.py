@@ -21,8 +21,6 @@ for _ in range(N):
     x += np.random.normal(loc=mu, scale=sigma)
     p.append(x)
 
-mu_sample = (p[-1] - p[0])/N
-
 res = minimize(exponential_loss, np.array([mu, 0]), args=p, method="Powell", tol=1e-6)
 g_loss = res.fun
 [m0, c0] = res.x
